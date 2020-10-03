@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>International Market</title>
 </head>
 <body>
 <table border=1 cellpadding=20>
 	<tr>
-		<th colspan=4>Items order:</th>
+		<th colspan=4>Your order:</th>
 	</tr>
 	<tr>
 		<th>Name</th>

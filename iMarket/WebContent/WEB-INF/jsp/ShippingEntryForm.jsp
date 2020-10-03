@@ -8,11 +8,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>International Market</title>
 </head>
 <body>
+<b>Enter Shipping Information</b>
 <form:form modelAttribute="shippingInfo" method="post" action="submitShipping">
-    <table>
+    <table border=1 cellpadding=20>
 		<tr>
 			<td><form:label path="name">Name</form:label></td>
             <td><form:input path="name"/></td>

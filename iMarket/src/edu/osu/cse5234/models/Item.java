@@ -1,16 +1,20 @@
 package edu.osu.cse5234.models;
 
 public class Item {
-	private String name;
-	private String company;
-	private String quantity;
-	private String price;
+	 private String name;
+	 private String company;
+	 private String quantity;
+	 private String price;
 	
-	public Item(String n, String c, String p) {
+	public Item () {
+		
+	} 
+	public Item(String n, String c, String p,String q) {
 		setName(n);
 		setCompany(c);
 		setPrice(p);
-	}	
+		setQuantity(q);
+	}
 	public String getName() {
 		return name;
 	}

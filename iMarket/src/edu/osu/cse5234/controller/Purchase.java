@@ -1,6 +1,5 @@
 package edu.osu.cse5234.controller;
-
-import java.util.Random;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import edu.osu.cse5234.models.Item;
 import edu.osu.cse5234.models.Order;
@@ -19,20 +19,23 @@ import edu.osu.cse5234.models.ShippingInfo;
 @RequestMapping("/purchase")
 public class Purchase {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping( method = RequestMethod.GET)
 	public String viewOrderEntryPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Order order = new Order();
-		order.getItems().add(new Item("item 1", "company", "5"));
-		order.getItems().add(new Item("item 2", "company", "10"));
-		order.getItems().add(new Item("item 3", "company", "15"));
-		order.getItems().add(new Item("item 4", "company", "20"));
-		order.getItems().add(new Item("item 5", "company", "25"));
+		List<Item> iList= order.getItems();
+		iList.add(new Item("Hide n' Seek", "Parle", "5","0"));
+		iList.add(new Item("Lays", "Lays", "10","0"));
+		iList.add(new Item("Cheetos", "Lays", "15","0"));
+		iList.add(new Item("GoodDay", "Parle", "20","0"));
+		iList.add(new Item("Bournville", "Bournville", "25","0"));
+		order.setItems(iList);
 		request.setAttribute("order", order);
 		return "OrderEntryForm";
 	}
 	
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public String submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
+		System.out.println(order.getItems().get(0).getName());
 		request.getSession().setAttribute("order", order);
 		return "redirect:/purchase/paymentEntry";
 	}
