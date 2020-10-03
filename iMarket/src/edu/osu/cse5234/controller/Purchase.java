@@ -3,10 +3,15 @@ package edu.osu.cse5234.controller;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import edu.osu.cse5234.models.PaymentInfo;
+import edu.osu.cse5234.models.ShippingInfo;
 
 @Controller
 @RequestMapping("/purchase")
@@ -48,6 +53,4 @@ public class Purchase {
 		request.setAttribute("orderId", (int)(1110+Math.random()*(range)) );
 		return "Confirmation";
 	}
-	
-
 }
