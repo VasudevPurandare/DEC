@@ -34,7 +34,7 @@ public class Purchase {
 		
 	}
 	
-	@RequestMapping( method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String viewOrderEntryPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		if(request.getSession().getAttribute("stock")==null) {
@@ -72,7 +72,6 @@ public class Purchase {
 	
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public String submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
-		System.out.println(order.getItems().get(0).getName());
 		request.getSession().setAttribute("order", order);
 		return "redirect:/purchase/paymentEntry";
 	}
