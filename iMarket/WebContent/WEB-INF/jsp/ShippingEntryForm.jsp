@@ -9,88 +9,59 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>International Market</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body
 	style="background-color: #fffafa; font-family: New Century Schoolbook, TeX Gyre Schola, serif; font-size: 16px">
 	<jsp:include page="Header.jsp"></jsp:include>
-	<div class="shippingDetails" style="margin-left: 15px; font-size: 18px">
-		<b>Enter Shipping Details:</b>
-	</div>
-	<br>
-	<form:form modelAttribute="shippingInfo" method="post"
-		action="submitShipping">
-		<div class="table table-hover" style="margin-left: 15px">
-			<div class="row">
-				<div class="col-2">
-					<form:label path="name">Name</form:label>
-				</div>
-				<div class="col-2">
-					<form:input path="name" />
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-2">
-					<form:label path="addressLine1">Address Line 1</form:label>
-				</div>
-				<div class="col-2">
-					<form:input path="addressLine1" />
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-2">
-					<form:label path="addressLine2">Address Line 2</form:label>
-				</div>
-				<div class="col-2">
-					<form:input path="addressLine2" />
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-2">
-					<form:label path="city">City</form:label>
-				</div>
-				<div class="col-2">
-					<form:input path="city" />
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-2">
-					<form:label path="state">State</form:label>
-				</div>
-				<div class="col-2">
-					<form:input path="state" />
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-2">
-					<form:label path="zip">Zip</form:label>
-				</div>
-				<div class="col-2">
-					<form:input path="zip" />
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-4" style="padding: 10px">
-					<div class="float-right">
-					<input type="submit" value="Next"
-						class="form-control btn btn-primary btn-md"></div>
-				</div>
-			</div>
-		</div>
-	</form:form>
+
+		<div class="row mt-4">
+        <div class="col-lg-6 mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                    <h4 class="card-title">Enter Shipping Info:</h4>
+                    <hr/>
+                        	<form:form modelAttribute="shippingInfo" method="post"
+								action="submitShipping">
+                        		<div class="table"	>
+                        					<div class="form-group">						
+											<label >To be Shipped to:</label>
+											<form:input path="name" placeholder=" Reciever Name"  class="form-control " />
+											</div>
+											<div class="form-group my-auto ">	
+											<div class="input-group">	
+												<div class="form-group mr-auto ">						
+													<div class="form-group">		
+														<label >Address:</label>		
+														<form:input path="addressLine1" placeholder="Address Line 1"  class="form-control  mb-3 " />		
+														<form:input path="addressLine2" placeholder="Address Line 2"  class="form-control " />
+													</div>
+													<div class="form-group">
+													<label >Zip Code:   </label>
+														<form:input path="zip" placeholder="Zip Code"  class="form-control"/>
+													</div>
+												</div>
+												<div class="form-group">						
+													<div >						
+													<label >City:</label>
+													<form:input path="state" placeholder="City"  class="form-control " />
+													<label >State:</label>
+													<form:input path="city" placeholder="State"  class="form-control " />
+													</div>
+												</div>
+											</div>
+											</div>
+											<input	 type="submit" value="Next"
+													class="form-control btn btn-primary btn-md">
+											
+			            		</div>
+                        	</form:form>
+                     </div>
+                  </div>
+            </div>
+        </div>
+        </div>
+                       
 	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

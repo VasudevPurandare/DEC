@@ -14,4 +14,12 @@ public class IMarketHome {
 	public String viewHomePage(HttpServletRequest request, HttpServletResponse response) {
 		return "Home";
 	}
+	@RequestMapping(path = "aboutUS", method = RequestMethod.GET)
+	public String viewAboutUSPage(HttpServletRequest request, HttpServletResponse response) {
+		return "AboutUs";
+	}
+	@RequestMapping(path = "contactUs", method = RequestMethod.GET)
+	public String viewContactUSPage(HttpServletRequest request, HttpServletResponse response) {
+		return "ContactUs";
+	}
 }
