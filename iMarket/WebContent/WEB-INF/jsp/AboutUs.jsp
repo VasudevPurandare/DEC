@@ -14,7 +14,7 @@
 				class="card col-lg-4 col-sm-6 col-xs-12 col-md-4 shadow d-flex align-items-stretch mr-auto mt-5"
 				style="width: 400px">
 				<div style="height: 50%">
-					<img class="card-img-top" src="images/Medha.jpg" alt="Card image"
+					<img class="card-img-top" src="images/Medha.jpeg" alt="Card image"
 						style="width: 100%; max-height: 100%;">
 				</div>
 				<div class="card-body">

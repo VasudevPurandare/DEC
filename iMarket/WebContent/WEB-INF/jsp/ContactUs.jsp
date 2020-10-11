@@ -65,7 +65,7 @@
 					<div class="col-md-3 text-center">
 						<ul class="list-unstyled mb-0">
 							<li><i class="fas fa-map-marker-alt fa-2x"></i>
-								<p>Ohio State University, OH 43202, USA</p></li>
+								<p>Ohio State University, OH 43210, USA</p></li>
 							<li><i class="fas fa-phone mt-4 fa-2x"></i>
 								<p>+1-234-567-89</p></li>
 							<li><i class="fas fa-envelope mt-4 fa-2x"></i>
