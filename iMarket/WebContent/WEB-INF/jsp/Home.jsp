@@ -5,18 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>iMarket</title>
-
-<style>
-.welcome {
-	color: black;
-	font-size: 24px;
-	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
-	padding: 30px; 
-	text-align: center;
-}
-</style>
 </head>
-<body style="background-color: #fffafa">
+<body>
 	<jsp:include page="Header.jsp"></jsp:include>
 	<div class="welcome">
 		<h4>

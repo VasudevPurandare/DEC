@@ -56,7 +56,7 @@ img {
 </style>
 </head>
 
-<body style="background-color: #F0F0F0; font-family: New Century Schoolbook, TeX Gyre Schola, serif; font-size: 18px">
+<body>
 	<jsp:include page="Header.jsp"></jsp:include>
 
 	<form:form modelAttribute="order" method="post"

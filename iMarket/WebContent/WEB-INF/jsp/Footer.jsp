@@ -5,20 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Footer</title>
-<style>
-.footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 3%;
-	font-size: 15px;
-	background-color: #fff5ee;
-	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
-	color: #191970;
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/myStyle.css">
 </head>
 <body>
 	<br />
