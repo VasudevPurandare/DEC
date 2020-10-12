@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>International Market</title>
 </head>
 <body>
 	<jsp:include page="Header.jsp"></jsp:include>

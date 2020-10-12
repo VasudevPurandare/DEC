@@ -67,7 +67,7 @@ img {
 				<c:forEach items="${order.items}" var="item" varStatus="loop">
 					<div
 						class="card col-lg-2 col-sm-6 col-xs-12 col-md-4 shadow d-flex align-items-stretch mr-4 mt-5"
-						style="background: #F0F0F0; font-size: 12px">
+						style="background: #F0F0F0">
 						<div style="height: 50%;">
 							<img class="card-img img-responsive"
 								src="images/${loop.index}.jpg" alt="Card image">
