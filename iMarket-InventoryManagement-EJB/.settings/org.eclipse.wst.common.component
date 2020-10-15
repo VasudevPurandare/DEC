@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="iMarket-InventoryManagement-EJB">
+        <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
+        <property name="java-output-path" value="/iMarket-InventoryManagement-EJB/build/classes"/>
+        <property name="ClientProject" value="iMarket-InventoryManagement-EJBClient"/>
+        <property name="ClientJARURI" value="iMarket-InventoryManagement-EJBClient.jar"/>
+    </wb-module>
+</project-modules>

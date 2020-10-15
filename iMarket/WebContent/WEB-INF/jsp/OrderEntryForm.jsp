@@ -13,7 +13,7 @@ function getproductQuantity (id){
 	var qid="#quantity"+id
 	var nid="#name"+id
 	var q= ($(qid).val());
-	 
+	 /*
 	$.ajax({
     	type: "POST",
         url: "purchase/isAvailable",
@@ -32,7 +32,7 @@ function getproductQuantity (id){
        		}
 		}
 	});
-	     
+	     */
 	return false;
 };
 

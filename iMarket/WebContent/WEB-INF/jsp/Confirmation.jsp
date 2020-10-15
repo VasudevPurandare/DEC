@@ -18,7 +18,7 @@
 						<hr />
 						<b>Thank you for shopping with us...</b> <br> Your order
 						confirmation number is:
-						<%=request.getAttribute("orderId")%>
+						${orderId}
 					</div>
 				</div>
 			</div>

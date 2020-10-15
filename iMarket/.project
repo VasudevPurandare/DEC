@@ -3,6 +3,7 @@
 	<name>iMarket</name>
 	<comment></comment>
 	<projects>
+		<project>iMarket-InventoryManagement-EJBClient</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
