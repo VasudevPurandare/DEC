@@ -1,12 +1,45 @@
 package edu.osu.cse5234.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="SHIPPING_INFO")
 public class ShippingInfo {
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	@Transient
 	String name;
+	
+	@Column(name="ADDRESS1")
 	String addressLine1;
+	
+	@Column(name="ADDRESS2")
 	String addressLine2;
+	
+	@Column(name="CITY")
 	String city;
+	
+	@Column(name="STATE")
 	String state;
+	
+	@Column(name="POSTAL_CODE")
 	String zip;
 	
 	public String getName() {

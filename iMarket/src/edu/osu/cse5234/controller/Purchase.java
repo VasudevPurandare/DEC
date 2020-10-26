@@ -1,5 +1,5 @@
 package edu.osu.cse5234.controller;
-
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,11 +11,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.models.LineItem;
 import edu.osu.cse5234.models.Order;
 import edu.osu.cse5234.models.PaymentInfo;
 import edu.osu.cse5234.models.ShippingInfo;
@@ -47,15 +47,21 @@ public class Purchase {
 		}*/
 		
 		
+		Inventory inventory = ServiceLocator.getInventoryService().getAvailableInventory();
+		request.setAttribute("inventory", inventory);
 		
 		Order order = new Order();
-		List<Item> iList= ServiceLocator.getInventoryService().getAvailableInventory().getItems();
-		order.setItems(iList);
+		List<LineItem> custList= new ArrayList<LineItem>();
+		for (int i=0; i< inventory.getItems().size();i++) {
+			custList.add(new LineItem());
+		}
+		order.setLineItems(custList);
 		request.setAttribute("order", order);
+		
 		return "OrderEntryForm";
 	}
 	
-	@RequestMapping(path="/isAvailable", method=RequestMethod.POST)
+	/*@RequestMapping(path="/isAvailable", method=RequestMethod.POST)
 	@ResponseBody
 	public  String isAvailable(@RequestParam(value="id")int id, @RequestParam(value="cust_q")int cust_q, HttpServletRequest request) {
 		List<Item> storeItems= ((Order) request.getSession().getAttribute("stock")).getItems();
@@ -67,19 +73,20 @@ public class Purchase {
 			 return storeItems.get(id).getQuantity();
 		}
 		
-	}
+	}*/
 	
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public ModelAndView submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
 		
 		boolean isValid=ServiceLocator.getOrderProcessingService().validateItemAvailability(order);
-		if(isValid) {
+		if(!isValid) {
 			request.getSession().setAttribute("order", order);
 			
 			return new ModelAndView("redirect:/purchase/paymentEntry");
 		}
 		else {
 			ModelMap mp= new ModelMap("message", "Please Resubmit item quantities");
+			request.setAttribute("order", order);
 			return new ModelAndView("OrderEntryForm", mp);
 		}
 	}
@@ -92,7 +99,10 @@ public class Purchase {
 	
 	@RequestMapping(path = "/submitPayment", method = RequestMethod.POST)
 	public String submitPayment(@ModelAttribute("paymentInfo") PaymentInfo paymentInfo, HttpServletRequest request) {
-		request.getSession().setAttribute("paymentInfo", paymentInfo);
+		
+		Order order= (Order)request.getSession().getAttribute("order");
+		order.setPaymentInfo(paymentInfo);
+		
 		return "redirect:/purchase/shippingEntry";
 	}
 
@@ -104,7 +114,10 @@ public class Purchase {
 
 	@RequestMapping(path = "/submitShipping", method = RequestMethod.POST)
 	public String submitShipping(@ModelAttribute("shippingInfo") ShippingInfo shippingInfo, HttpServletRequest request) {
-		request.getSession().setAttribute("shippingInfo", shippingInfo);
+		
+		Order order= (Order)request.getSession().getAttribute("order");
+		order.setShippingInfo(shippingInfo);
+		
 		return "redirect:/purchase/viewOrder";
 	}	
 	
@@ -119,20 +132,6 @@ public class Purchase {
 		Order order =(Order) request.getSession().getAttribute("order");
 		String confnum=ServiceLocator.getOrderProcessingService().processOrder(order);
 		request.getSession().setAttribute("orderId",  confnum);
-		
-		//(int)(1110+Math.random()*(range))
-		/*Order stock= (Order)request.getSession().getAttribute("stock");
-		Order custOrder= (Order)request.getSession().getAttribute("order");
-		
-		for(int i=0;i<stock.getItems().size();i++) {
-			Item sItem= stock.getItems().get(i);
-			Item cItem= custOrder.getItems().get(i);
-			int newa=Integer.parseInt(sItem.getQuantity()) - Integer.parseInt(cItem.getQuantity());
-			sItem.setQuantity(  newa+"" );
-		}*/
-		
-		//int range=9999-1111;
-		
 		
 		return "Confirmation";
 	}

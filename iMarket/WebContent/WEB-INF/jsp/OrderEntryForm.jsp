@@ -58,13 +58,19 @@ img {
 
 <body>
 	<jsp:include page="Header.jsp"></jsp:include>
-
+	${message }
 	<form:form modelAttribute="order" method="post"
 		action="purchase/submitItems">
 
 		<div class="container">
+		<div>
+				<form:input type ="text" id="cust_name"
+					path="customer_name"  />
+				<form:input path="customer_email" type="email" />			
+		</div>
+		
 			<div class="row">
-				<c:forEach items="${order.items}" var="item" varStatus="loop">
+				<c:forEach items="${inventory.items}" var="item" varStatus="loop">
 					<div
 						class="card col-lg-2 col-sm-6 col-xs-12 col-md-4 shadow d-flex align-items-stretch mr-4 mt-5"
 						style="background: #F0F0F0">
@@ -82,7 +88,7 @@ img {
 								<a class="btn btn-sm btn-outline-secondary"
 									onclick="decrement(${loop.index});">-</a>
 								<form:input id="quantity${loop.index}"
-									path="items[${loop.index}].quantity"
+									path="lineItems[${loop.index}].quantity"
 									class="form-control input-number"
 									onchange="getproductQuantity(${loop.index})" />
 								<a class="btn btn-sm btn-outline-secondary"
@@ -91,10 +97,10 @@ img {
 						</div>
 					</div>
 					<form:hidden id="name${loop.index}"
-						path="items[${loop.index}].name" value="${item.name}" />
-					<form:hidden path="items[${loop.index}].price"
+						path="lineItems[${loop.index}].name" value="${item.name}" />
+					<form:hidden path="lineItems[${loop.index}].price"
 						value="${item.price}" />
-					<form:hidden path="items[${loop.index}].company"
+					<form:hidden path="lineItems[${loop.index}].company"
 						value="${item.company}" />
 					<c:if test="${loop.index}%2==0"> Even</c:if>
 				</c:forEach>

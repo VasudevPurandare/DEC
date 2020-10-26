@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * Session Bean implementation class InventoryServiceBean
@@ -18,7 +20,20 @@ public class InventoryServiceBean implements InventoryService {
     /**
      * Default constructor. 
      */
-    public InventoryServiceBean() {
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	String mY_QUERY="SELECT i from Item i";
+    public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	
+	public InventoryServiceBean() {
         // TODO Auto-generated constructor stub
     }
 
@@ -26,12 +41,7 @@ public class InventoryServiceBean implements InventoryService {
 	public Inventory getAvailableInventory() {
 		// TODO Auto-generated method stub
 		
-		List<Item> itemStore = new ArrayList<Item>();
-		itemStore.add(new Item("Hide n' Seek", "Parle", "5","0"));
-		itemStore.add(new Item("Lays", "Lays", "10","0"));
-		itemStore.add(new Item("Cheetos", "Lays", "15","0"));
-		itemStore.add(new Item("Jim Jam", "Parle", "20","0"));
-		itemStore.add(new Item("Bournville", "Bournville", "25","0"));
+		List<Item> itemStore = entityManager.createQuery(mY_QUERY,Item.class).getResultList();
 		Inventory inventory = new Inventory();
 		inventory.setItems(itemStore);
 		
