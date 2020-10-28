@@ -31,7 +31,7 @@
 								<th>Quantity</th>
 								<th>Price</th>
 							</tr>
-							<c:forEach items="${order.items}" var="item">
+							<c:forEach items="${order.lineItems}" var="item">
 								<tr>
 									<td><c:out value="${item.name}"></c:out></td>
 									<td><c:out value="${item.company}"></c:out></td>
@@ -52,15 +52,15 @@
 							<table class="table" cellpadding=20>
 								<tr>
 									<td colspan=2><b>Credit Card Number:</b><br> <c:out
-											value="${paymentInfo.creditCardNumber}"></c:out></td>
+											value="${order.paymentInfo.creditCardNumber}"></c:out></td>
 									<td colspan=2><b>Expiration Date:</b><br> <c:out
-											value="${paymentInfo.expirationDate}"></c:out></td>
+											value="${order.paymentInfo.expirationDate}"></c:out></td>
 								</tr>
 								<tr>
 									<td colspan=2><b>CVV:</b><br> <c:out
-											value="${paymentInfo.cvvCode}"></c:out></td>
+											value="${order.paymentInfo.cvvCode}"></c:out></td>
 									<td colspan=2><b>Card Holder Name:</b><br> <c:out
-											value="${paymentInfo.cardHolderName}"></c:out></td>
+											value="${order.paymentInfo.cardHolderName}"></c:out></td>
 								</tr>
 							</table>
 						</div>
@@ -75,22 +75,22 @@
 							<table class="table" cellpadding=20>
 								<tr>
 									<td colspan=4><b>Receiver Name:</b> <c:out
-											value="${shippingInfo.name}"></c:out></td>
+											value="${order.shippingInfo.name}"></c:out></td>
 								</tr>
 								<tr>
 									<td rowspan=3 colspan=2><b>Address:</b><br> <c:out
-											value="${shippingInfo.addressLine1}"></c:out> <br> <c:out
-											value="${shippingInfo.addressLine2}"></c:out></td>
+											value="${order.shippingInfo.addressLine1}"></c:out> <br> <c:out
+											value="${order.shippingInfo.addressLine2}"></c:out></td>
 									<td colspan=2><b>City: </b> <c:out
-											value="${shippingInfo.city}"></c:out></td>
+											value="${order.shippingInfo.city}"></c:out></td>
 								</tr>
 								<tr>
 									<td colspan=2><b>State: </b> <c:out
-											value="${shippingInfo.state}"></c:out></td>
+											value="${order.shippingInfo.state}"></c:out></td>
 								</tr>
 								<tr>
 									<td colspan=2><b>Zip: </b> <c:out
-											value="${shippingInfo.zip}"></c:out></td>
+											value="${order.shippingInfo.zip}"></c:out></td>
 								</tr>
 							</table>
 						</div>

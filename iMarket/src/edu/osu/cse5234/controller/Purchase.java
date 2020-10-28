@@ -79,7 +79,7 @@ public class Purchase {
 	public ModelAndView submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
 		
 		boolean isValid=ServiceLocator.getOrderProcessingService().validateItemAvailability(order);
-		if(!isValid) {
+		if(isValid) {
 			request.getSession().setAttribute("order", order);
 			
 			return new ModelAndView("redirect:/purchase/paymentEntry");

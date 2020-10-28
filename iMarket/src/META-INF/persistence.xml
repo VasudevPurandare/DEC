@@ -6,7 +6,7 @@
 		<class>edu.osu.cse5234.models.PaymentInfo</class>
 		<class>edu.osu.cse5234.models.ShippingInfo</class>
 		<properties>
-			<property name="eclipselink.target-database" value='"org.eclipse.persistence.platform.database.H2Platform" '/>
+			<property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
 			<property name="eclipselink.weaving" value="false"/>
 		</properties>
 	</persistence-unit>

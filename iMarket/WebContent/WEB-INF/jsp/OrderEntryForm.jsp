@@ -96,6 +96,8 @@ img {
 							</div>
 						</div>
 					</div>
+						<form:hidden id="name${loop.index}"
+						path="lineItems[${loop.index}].item_number" value="${item.itemNumber}" />
 					<form:hidden id="name${loop.index}"
 						path="lineItems[${loop.index}].name" value="${item.name}" />
 					<form:hidden path="lineItems[${loop.index}].price"
