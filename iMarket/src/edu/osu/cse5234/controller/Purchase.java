@@ -85,8 +85,10 @@ public class Purchase {
 			return new ModelAndView("redirect:/purchase/paymentEntry");
 		}
 		else {
-			ModelMap mp= new ModelMap("message", "Please Resubmit item quantities");
+			ModelMap mp= new ModelMap("message", "Quantity Not Available. Please Resubmit item quantities");
 			request.setAttribute("order", order);
+			Inventory inventory = ServiceLocator.getInventoryService().getAvailableInventory();
+			request.setAttribute("inventory", inventory);
 			return new ModelAndView("OrderEntryForm", mp);
 		}
 	}

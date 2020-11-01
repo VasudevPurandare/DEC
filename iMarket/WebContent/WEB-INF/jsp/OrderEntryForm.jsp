@@ -58,17 +58,23 @@ img {
 
 <body>
 	<jsp:include page="Header.jsp"></jsp:include>
-	${message }
+	
+	<h4 style="text-align:center;">${message}</h4>
+	
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+	
 	<form:form modelAttribute="order" method="post"
-		action="purchase/submitItems">
+		action="${contextPath}/purchase/submitItems">
 
 		<div class="container">
-		<div>
-				<form:input type ="text" id="cust_name"
-					path="customer_name"  />
-				<form:input path="customer_email" type="email" />			
-		</div>
+		<div class="row">
 		
+		<div>	Customer Name:
+				<form:input type ="text" id="cust_name" placeholder="Enter Your Name"
+					path="customer_name"  class="form-control "/>
+				Customer Email:<form:input path="customer_email"  placeholder="Enter Your Email" type="email" class="form-control "/>			
+		</div>
+		</div>
 			<div class="row">
 				<c:forEach items="${inventory.items}" var="item" varStatus="loop">
 					<div
@@ -76,7 +82,7 @@ img {
 						style="background: #F0F0F0">
 						<div style="height: 50%;">
 							<img class="card-img img-responsive"
-								src="images/${loop.index}.jpg" alt="Card image">
+								src="${contextPath}/images/${loop.index}.jpg" alt="Card image">
 						</div>
 						<div class="card-body">
 							<h4 class="card-title">${item.name}</h4>
