@@ -12,13 +12,13 @@
 		<h4>
 			Welcome to iMarket!!! <br> <br> Shop from our wide variety
 			of products originally found in the great sub-continent of India... <br>
-			<br> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-			sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-			enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-			ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-			culpa qui officia deserunt mollit anim id est laborum.
+			<br> Our vision is to make the Indian products available to people living 
+			in the United States of America and bring them closer to the taste of India. <br>
+			We are currently available online for delivery and pickup at our offline store in
+			Columbus, Ohio. <br>
+			We will soon expand to make our products available in New York, Chicago,
+			Seattle, San Francisco, and Los Angeles.
+			<br> 
 		</h4>
 	</div>
 	<jsp:include page="Footer.jsp"></jsp:include>
